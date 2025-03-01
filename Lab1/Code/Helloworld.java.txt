@@ -1,0 +1,7 @@
+public class Helloworld {
+	public static void main(String[] args) {
+		System.out.println("20235866 - Luong Thanh Tung");
+		System.out.println("Hello world");
+		System.out.println("Xin chao cac ban");
+	}
+}
