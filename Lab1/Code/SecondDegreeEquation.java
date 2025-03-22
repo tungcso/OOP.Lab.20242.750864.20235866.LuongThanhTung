@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 public class SecondDegreeEquation {
 	public static void main(String[] args) {
 		String strcmd;
-		strcmd = JOptionPane.showInputDialog(null, "Hãy nhập số lệnh để giải các dạng bài sau:\n1. Phương trình bậc nhất (ax + b = 0)\n2. Hệ phương trình 2 ẩn\n3. Phương trình bậc 2 (ax^2 +bx + c = 0)");
+		strcmd = JOptionPane.showInputDialog(null, "Lương Thanh Tùng - Hãy nhập số lệnh để giải các dạng bài sau:\n1. Phương trình bậc nhất (ax + b = 0)\n2. Hệ phương trình 2 ẩn\n3. Phương trình bậc 2 (ax^2 +bx + c = 0)");
 		double cmd = Double.parseDouble(strcmd);
 		
 		if (cmd == 1) {
