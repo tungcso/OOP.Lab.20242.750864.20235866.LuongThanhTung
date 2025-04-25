@@ -1,0 +1,49 @@
+1. What should be the return type of toString() method.
+
+Kiểu trả về của phương thức toString() là String vì tính nhất quán.Việc đảm bảo rằng toString() luôn trả về một String giúp duy trì tính nhất quán trong toàn bộ hệ thống Java. Bất kể bạn gọi toString() trên đối tượng nào, bạn luôn có thể chắc chắn rằng bạn sẽ nhận được một chuỗi. Điều này rất quan trọng cho tính đa hình, vì nó cho phép bạn xử lý các đối tượng thuộc các lớp khác nhau một cách thống nhất thông qua kiểu Object (hoặc một lớp cha chung khác) và vẫn có thể gọi toString() để lấy thông tin dạng chuỗi.
+
+2.If the passing object is not an instance of Media, what happens?
+Có thể gây ra lỗi ClassCastException nếu bạn cố gắng ép kiểu nó thành Media.
+Nếu có kiểm tra bằng instanceof, chương trình sẽ thực hiện các hành động được định sẵn cho trường hợp đó (ví dụ: trả về false trong phương thức equals()).
+
+3.What class should implement the Comparable interface?
+Lớp Media nên implement interface Comparable vì Media là lớp cha chung cho các loại đối tượng như Book, DigitalVideoDisc, CompactDisc. Việc implement Comparable trong Media cho phép ta định nghĩa một quy tắc sắp xếp mặc định cho tất cả các loại Media.
+
+4. How should you implement the compareTo() method to reflect the ordering we want?
+
+Để sắp xếp theo title (a-z), rồi theo cost (giảm dần) nếu title trùng, hãy implement compareTo() như sau:
+@Override
+public int compareTo(Media other) {
+    int titleCompare = this.getTitle().compareToIgnoreCase(other.getTitle());
+    if (titleCompare != 0) {
+        return titleCompare;
+    } else {
+        return Float.compare(other.getCost(), this.getCost()); // Giảm dần
+    }
+}
+5. Can we have two ordering rules (by title then cost and by cost then title) using Comparable?
+
+Không được vì Comparable chỉ có một phương thức compareTo(). Phương thức này định nghĩa một cách so sánh mặc định. Để có nhiều cách so sánh, bạn cần Comparator.
+6. Suppose the DVDs have a different ordering rule (by title, then decreasing length, then cost). How would you modify your code?
+
+Để sắp xếp DVD theo title (a-z), sau đó theo length (giảm dần), rồi theo cost (tăng dần), ta override phương thức compareTo() trong lớp DigitalVideoDisc như sau:
+
+public class DigitalVideoDisc extends Media {
+    private int length;
+
+    @Override
+    public int compareTo(Media other) {
+        if (!(other instanceof DigitalVideoDisc)) {
+            return super.compareTo(other); // Sử dụng compareTo() của Media
+        }
+
+        DigitalVideoDisc o = (DigitalVideoDisc) other;
+        int titleCompare = this.getTitle().compareToIgnoreCase(o.getTitle());
+        if (titleCompare != 0) return titleCompare;
+
+        int lengthCompare = Integer.compare(o.length, this.length); // length giảm dần
+        if (lengthCompare != 0) return lengthCompare;
+
+        return Float.compare(this.getCost(), o.getCost()); // cost tăng dần
+    }
+}

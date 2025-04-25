@@ -1,0 +1,13 @@
+Câu 9:
+
+Accessor methods (getters) được sử dụng để lấy thông tin (các thuộc tính) của một đối tượng. Ví dụ, nếu bạn có một đối tượng "Sách", bạn có thể dùng getter để lấy tên sách, tác giả, v.v.
+
+Câu 10:
+
+Java không cho phép tạo 2 constructor có cùng kiểu tham số. Ví dụ, cả hai constructor DigitalVideoDisc(String title) và DigitalVideoDisc(String category) đều nhận vào một chuỗi (String), nên Java không biết bạn muốn dùng cái nào.
+
+Câu 15:
+
+Trong Java, khi truyền một biến vào một phương thức, giá trị của biến đó được sao chép (Pass by Value). Điều này có nghĩa là nếu phương thức thay đổi giá trị của biến, biến gốc bên ngoài phương thức sẽ không bị ảnh hưởng.
+Điều này đúng cho cả các đối tượng, khi truyền đối tượng vào phương thức, địa chỉ của đối tượng đó được sao chép, tuy nhiên các thuộc tính của đối tượng đó nếu thay đổi thì sẽ bị thay đổi theo.
+Nói ngắn gọn, Java luôn luôn truyền giá trị, chứ không truyền tham chiếu.
