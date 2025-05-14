@@ -1,0 +1,14 @@
+1. Compare programming with AWT and Swing:
+	Container Cấp Cao Nhất:
+          AWT: Container cấp cao nhất trong AWT là Frame.    
+          Swing: Container cấp cao nhất trong Swing là JFrame.
+	Tên class:
+  	  AWT: Label, TextField, Frame
+          Swing: JLabel, JTextField, JFrame
+	Xử lí sự kiện: Cơ chế xử lý sự kiện khá giống nhau trong AWT và Swing. Cả hai đều sử dụng 		   interface ActionListener để xử lý các sự kiện hành động (chẳng hạn như nhấp vào nút hoặc nhấn 	   Enter trong một trường văn bản).	
+	Giao diện:
+	  AWT: Giao diện native
+	  Swing: Kiểm soát giao diện tốt hơn
+2. Nút play với các đĩa CD,DVD:
+	Hàm xét điều kiện nếu media đó là 1 kiểu mà có thể chơi được ( playable ) và từ đó nếu điều kiện
+thỏa mãn thì sẽ thêm 1 nút play và xét hàm xử lí sự kiện nút play đó vào trong thẻ MediaStore.
